@@ -14,8 +14,8 @@ try {
     $sql = "USE Toilets";
     $conn->exec($sql);
     echo "DB created successfully";
-    $stmt1 = $conn->prepare("DROP TABLE IF EXISTS TblUser;
-    CREATE TABLE TblUser 
+    $stmt1 = $conn->prepare("DROP TABLE IF EXISTS TblPooper;
+    CREATE TABLE TblPooper 
     (UserID INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     Username VARCHAR(20) NOT NULL,
     Surname VARCHAR(20) NOT NULL,
@@ -52,7 +52,7 @@ try {
 
     
     $hashed_password = password_hash("password", PASSWORD_DEFAULT);
-    $stmt4 = $conn->prepare("INSERT INTO TblUser(UserID,Username,Surname,Forename,Password)VALUES 
+    $stmt4 = $conn->prepare("INSERT INTO TblPooper(UserID,Username,Surname,Forename,Password)VALUES 
     (NULL,'cunniffe.r','Cunniffe','Robert',:hp),
     (NULL,'james.h','James','Hector',:hp),
     (NULL,'smith.j','Smith','John',:hp),

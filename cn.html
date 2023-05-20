@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Updating Joke Every Minute</title>
+    <style>
+        .joke-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+    <script>
+function fetchRandomJoke() {
+    // Make an API call to fetch a random Chuck Norris joke
+    fetch('https://api.chucknorris.io/jokes/random')
+        .then(response => response.json())
+        .then(data => {
+            // Custom array of words to filter out
+            const forbiddenWords = ['fuck', 'shit', 'cunt','dick,"penis',"erection"]; // Add your custom words here
+
+            // Check if the joke contains any forbidden words
+            const containsForbiddenWord = forbiddenWords.some(word =>
+                data.value.toLowerCase().includes(word.toLowerCase())
+            );
+
+            if (containsForbiddenWord) {
+                // If the joke contains forbidden words, fetch another joke
+                fetchRandomJoke();
+            } else {
+                // Get the HTML element by its id
+                var outputElement = document.getElementById("output");
+
+                // Write the joke to the HTML element
+                outputElement.textContent = data.value;
+            }
+        })
+        .catch(error => console.error('Error occurred:', error));
+}
+
+// Fetch and display a random joke immediately
+fetchRandomJoke();
+
+// Update the joke every minute
+setInterval(fetchRandomJoke, 5000);
+    </script>
+</head>
+<body>
+    <div id="output" class="joke-container"></div>
+
+    
+</body>
+</html>
