@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form action="addToilet.php" method="POST" enctype="multipart/form-data">
+<form action="addToilet.php" method="POST" enctype="multipart/form-data">#need enctype to make files work!
   	Toilet Location:<input type="text" name="ToiletLocation"><br>
   	Description:<p><textarea name="Toiletdescription" rows=5 cols=80 >Enter description here...</textarea></p>
 	Rating: <input type="number" id="Rating" name="Rating" min="0" max="10"><br>
