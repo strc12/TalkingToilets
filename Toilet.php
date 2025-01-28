@@ -8,7 +8,7 @@
     </style>
 </head>
 <body>
-
+LOOS
 <form action="addToilet.php" method="POST" enctype="multipart/form-data">#need enctype to make files work!
   	Toilet Location:<input type="text" name="ToiletLocation"><br>
   	Description:<p><textarea name="Toiletdescription" rows=5 cols=80 >Enter description here...</textarea></p>
